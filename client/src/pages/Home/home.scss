@@ -1,0 +1,107 @@
+.hero{
+    background-image: url('	https://preview.colorlib.com/theme/coloshop/images/slider_1.jpg');
+    height: 700px;
+    background-repeat: no-repeat;
+    position: relative;
+    align-items: center;
+    .content{
+        width: 35%;
+        position: absolute;
+        margin: 200px 250px 250px 100px;
+        text-align: start;
+        .title{
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .sub-title{
+            margin-top: 30px;
+            font-size: 72px;
+            font-weight: 400;
+            line-height:70px;
+        }
+        .button{
+            margin-top: 30px;
+            button{
+                background-color: rgba(255, 0, 0, 0.647);
+                padding:8px 32px;
+                color: white;
+                text-transform: uppercase;
+                border: none;
+                font-size: 14px;
+                border-radius: 2px;
+                transition: .5s;
+                font-weight: 500;
+                &:hover{
+                    background-color: rgba(255, 0, 0, 0.443);
+                }
+            }
+        }
+    }
+}
+
+.categories{
+    margin-top: 10px;
+    .container{
+        .col-md-4{
+            position: relative;
+            img{
+                margin: 20px auto;
+                display: block;
+            }
+            .title{
+                position: absolute;
+               left: 50%;
+               top: 50%;
+               transform: translate(-50%,-50%);
+                span{
+                    background-color: white;
+                    color: black;
+                    text-transform: uppercase;
+                    font-size: 22px;
+                    font-weight: 600;
+                    padding: 12px 24px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+.arrivals{
+    margin-top: 100px;
+    .cards{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        .card{
+            width: 250px;
+            border: none;
+            text-align: center;
+            .button{
+                display: none;
+            }
+            &:hover{
+                .button{
+                    display: block;
+
+                }
+            }
+        } 
+    }
+    .text{
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+.slider{
+    .text{
+        font-size: 40px;
+        text-align: center;
+    }
+    width: 50%  ;
+    margin: 0 auto;
+    margin-top: 100px;
+}
