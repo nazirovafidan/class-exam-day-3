@@ -3,8 +3,9 @@ import { BasketContext } from '../../context/basketContext';
 
 const Basket = () => {
   const { basket, setBasket } = useContext(BasketContext);
+  console.log(basket)
   return (
-    <div>
+    <div style={{paddingTop:"6rem"}}>
       <ul>  
         {basket &&
           basket.map((basketItem) => {

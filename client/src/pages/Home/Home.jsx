@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './home.scss'
 import { Helmet } from "react-helmet";
 import { getAll } from '../../sevices/requests';
 import { endpoint } from '../../sevices/constants';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { BasketContext } from '../../context/basketContext';
 
 const Home = () => {
   const [arrivals, setArrivals] = useState([])
+  const {basket,setBasket} = useContext(BasketContext)
   useEffect(() => {
     getAll(endpoint.arrivals).then((res) => {
       if (res.data && Array.isArray(res.data.data)) {
@@ -95,7 +97,22 @@ const Home = () => {
                       <span>{arrival.price}</span>
                     </div>
                     <div className="button">
-                      <button>Add to cart</button>
+                      <button onClick={()=>{
+                        const foundItem = basket.find((x) => x.id == arrival._id);
+                        if (foundItem) {
+                          foundItem.count += 1;
+                          setBasket([...basket]);
+                          localStorage.setItem("basket", JSON.stringify(basket));
+                        } else {
+                          const basketProduct = {...arrival};
+                          basketProduct.count = 1;
+                          setBasket((currentBasket)=>{
+                            currentBasket.push(basketProduct);
+                            localStorage.setItem("basket", JSON.stringify(currentBasket));
+                            return [...currentBasket];
+                          });
+                        }
+                      }}>Add to cart</button>
                     </div>
                   </div>
                 </div>)

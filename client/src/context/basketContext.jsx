@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const BasketContext = createContext(     );
+export const BasketContext = createContext();
 
 export const BasketContextProvider = ({ children }) => {
   let localBasket = JSON.parse(localStorage.getItem("basket"));

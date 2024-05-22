@@ -36,6 +36,7 @@ const Add = () => {
       <button type='submit'>Add</button>
     </form>
    </div>
+   
   )
 }
 
