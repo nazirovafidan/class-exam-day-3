@@ -5,8 +5,8 @@ const Basket = () => {
   const { basket, setBasket } = useContext(BasketContext);
   console.log(basket)
   return (
-    <div style={{paddingTop:"6rem"}}>
-      <ul>  
+    <div >
+      <ul>
         {basket &&
           basket.map((basketItem) => {
             return (
@@ -76,7 +76,7 @@ const Basket = () => {
       >
         order
       </button>
-    </div>
+    </div >
   );
 }
 

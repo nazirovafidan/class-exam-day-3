@@ -10,20 +10,28 @@ import { BasketContext } from '../../context/basketContext';
 const Home = () => {
   const [arrivals, setArrivals] = useState([])
   const {basket,setBasket} = useContext(BasketContext)
-  useEffect(() => {
-    getAll(endpoint.arrivals).then((res) => {
-      if (res.data && Array.isArray(res.data.data)) {
+  useEffect(()=>{
+    getAll(endpoint.arrivals).then((res)=>{
+      if(res.data && Array.isArray(res.data.data)){
         setArrivals(res.data.data)
       }
     })
-  }, [])
+  },[])
+  
+  
+  
+  // useEffect(() => {
+  //   getAll(endpoint.arrivals).then((res) => {
+  //     if (res.data && Array.isArray(res.data.data)) {
+  //       setArrivals(res.data.data)
+  //     }
+  //   })
+  // }, [])
 
   return (
     <div>
       <Helmet>
-        <meta charSet="utf-8" />
         <title>Home</title>
-        <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <section className='hero'>
         <div className="container">
@@ -78,7 +86,7 @@ const Home = () => {
       </section>
 
       <section className='arrivals'>
-        <div className="container">
+        <div className="container"> 
           <div className="text">
           <span>New Arrivals</span>
           </div>
@@ -98,21 +106,23 @@ const Home = () => {
                     </div>
                     <div className="button">
                       <button onClick={()=>{
-                        const foundItem = basket.find((x) => x.id == arrival._id);
-                        if (foundItem) {
-                          foundItem.count += 1;
-                          setBasket([...basket]);
-                          localStorage.setItem("basket", JSON.stringify(basket));
-                        } else {
-                          const basketProduct = {...arrival};
-                          basketProduct.count = 1;
+                        const foundItem=basket.find((x)=>x.id==arrival._id)
+                        if(foundItem){
+                          foundItem.count+=1
+                          setBasket([...basket])
+                          localStorage.basket
+                        }else{
+                          const basketProduct={...arrival}
+                          basketProduct.count=1
                           setBasket((currentBasket)=>{
-                            currentBasket.push(basketProduct);
-                            localStorage.setItem("basket", JSON.stringify(currentBasket));
-                            return [...currentBasket];
-                          });
+                            currentBasket.push(basketProduct)
+                            localStorage.setItem('basket',JSON.stringify(currentBasket))
+                            return[...currentBasket]
+                          })
                         }
                       }}>Add to cart</button>
+                      <button onc
+                      >Add to wishlist</button>
                     </div>
                   </div>
                 </div>)

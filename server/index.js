@@ -23,7 +23,7 @@ const arrivalsModel=mongoose.model(('Arrivals'),arrivalsSchema)
 
 //CRUD
 app.get('/api/arrivals',async(req,res)=>{
-    const arrival=await arrivalsModel.find()
+    const arrival= await arrivalsModel.find()
     if(arrival){
         res.send({
             message:'success',

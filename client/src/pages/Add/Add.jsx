@@ -28,7 +28,9 @@ const Add = () => {
   </Helmet>
     <form style={{paddingTop:'150px'}} onSubmit={formik.handleSubmit}>
       <label htmlFor="imgSrc">ImageSrc:</label>
-      <input type="text" value={formik.values.imageSrc} name='imageSrc' id='imgSrc' onChange={formik.handleChange} />
+      <input type="text" value={formik.values.imageSrc} name='imageSrc' id='imgSrc' onChange={formik.handleChange} /> {formik.touched.imgSrc && formik.errors.imgSrc? (<div >
+        {formik.errors.imgSrc}
+      </div>)}
       <label htmlFor="title">Title:</label>
       <input type="text"value={formik.values.title} name='title' id='title' onChange={formik.handleChange} />
       <label htmlFor="price">Price:</label>

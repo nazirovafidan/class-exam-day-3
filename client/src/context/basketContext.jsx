@@ -1,16 +1,34 @@
 import { createContext, useState } from "react";
 
-export const BasketContext = createContext();
-
+export const BasketContext = createContext()
 export const BasketContextProvider = ({ children }) => {
-  let localBasket = JSON.parse(localStorage.getItem("basket"));
+  let localBasket = JSON.parse(localStorage.getItem('basket'))
   if (!localBasket) {
-    localStorage.setItem("basket", JSON.stringify([]));
+    localStorage.setItem('basket', JSON.stringify([]))
   }
-  let [basket, setBasket] = useState(localBasket || []);
+  let [basket, setBasket] = useState(localBasket || [])
   return (
-    <BasketContext.Provider value={{ basket, setBasket}}>
+    <BasketContext.Provider value={{ basket, setBasket }}>
       {children}
     </BasketContext.Provider>
-  );
-};
+  )
+}
+
+
+
+// import { createContext, useState } from "react";
+
+// export const BasketContext = createContext();
+
+// export const BasketContextProvider = ({ children }) => {
+//   let localBasket = JSON.parse(localStorage.getItem("basket"));
+//   if (!localBasket) {
+//     localStorage.setItem("basket", JSON.stringify([]));
+//   }
+//   let [basket, setBasket] = useState(localBasket || []);
+//   return (
+//     <BasketContext.Provider value={{ basket, setBasket}}>
+//       {children}
+//     </BasketContext.Provider>
+//   );
+// };
